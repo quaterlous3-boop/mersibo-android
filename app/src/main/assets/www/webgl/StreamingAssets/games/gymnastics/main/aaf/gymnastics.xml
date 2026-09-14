@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="xml" name="XML" res="./gymnastics_words.xml"/>
+
+		<Item type="mp3" name="SoundClick" res="empty"/>
+		<Item type="mp3" name="SoundMove" res="down"/>
+		<Item type="mp3" name="Soundtrack" res="track3"/>
+
+		<Item type="mp3" name="SoundFanfary" res="win2"/><!-- Фанфары -->
+	</Block>
+
+</Game>

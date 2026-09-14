@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+
+	<Version version="2" copyright="@Mersibo, 2021" />
+	
+	<Block name="Default">
+		<Item name="SoundClick" 	type="mp3" res="empty"/> 
+		<Item name="SoundLose" 		type="mp3" res="dragon_wrong"/>
+		<Item name="SoundCoin" 		type="mp3" res="coin"/>
+		<Item name="SoundVictory" 	type="mp3" res="dragon_victory"/>
+		<Item name="Soundtrack" 	type="mp3" res="dragon_fon"/>
+		
+		<Item name="SoundForeign1" 	type="mp3" res="jump"/>
+		<Item name="SoundForeign2" 	type="mp3" res="magic"/>
+		<Item name="SoundForeign3" 	type="mp3" res="down"/>
+
+		<Item name="Item" 			type="svg" res="bucket"/>
+	</Block>
+
+</Game>

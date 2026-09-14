@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="SoundArrival" res="helecopter"/>
+		<Item type="mp3" name="SoundFlyAway" res="empty"/>
+		<Item type="mp3" name="SoundClick" res="click_02"/>
+
+		<Item type="mp3" name="Soundtrack" res="track7"/>
+	</Block>
+
+</Game>

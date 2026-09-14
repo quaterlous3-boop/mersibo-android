@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="SoundClick" res="click1"/> 
+		
+		<Item type="mp3" name="Item dishes" res="dishes"/>
+		<Item type="mp3" name="Item door" res="door"/>
+		<Item type="mp3" name="Item drill" res="drill"/>
+		<Item type="mp3" name="Item newspaper" res="newspaper"/>
+		<Item type="mp3" name="Item paper" res="paper"/>
+		<Item type="mp3" name="Item phone" res="phone"/>
+		<Item type="mp3" name="Item radio" res="radio"/>
+		<Item type="mp3" name="Item shower" res="shower"/>
+		<Item type="mp3" name="Item sleep" res="sleep"/>
+		<Item type="mp3" name="Item tea" res="tea"/>
+		<Item type="mp3" name="Item tram" res="train"/>
+	</Block>
+	
+</Game>

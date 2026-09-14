@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+	<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="Click" res="click1"/>
+		<Item type="mp3" name="Right" res="empty"/>
+		<Item type="mp3" name="Wrong" res="empty"/>
+		<Item type="mp3" name="Victory" res="victory2"/>
+		<Item type="mp3" name="Defeat" res="wrong"/>
+		<Item type="mp3" name="Soundtrack" res="track5"/>
+	</Block>
+
+	<Block name="LettersType_0"> <!-- Л-Р -->
+		<!-- 0 - принадлежность к первой букве, 1 - ко второй -->
+		<Item type="svg" name="Item0_0"  res="strawberry"/>
+		<Item type="svg" name="Item0_1"  res="varnish"/>
+		<Item type="svg" name="Item0_2"  res="lamp"/>
+		<Item type="svg" name="Item0_3"  res="swallow"/>
+		<Item type="svg" name="Item0_4"  res="flippers"/>
+		<Item type="svg" name="Item0_5"  res="forehead"/>
+		<Item type="svg" name="Item0_6"  res="boat"/>
+		<Item type="svg" name="Item0_7"  res="spoon"/>
+		<Item type="svg" name="Item0_8"  res="shovel"/>
+		<Item type="svg" name="Item0_9"  res="moose"/>
+		<Item type="svg" name="Item0_10" res="puddle"/>
+		<Item type="svg" name="Item0_11" res="onion"/>
+		<Item type="svg" name="Item0_12" res="moon"/>
+		<Item type="svg" name="Item0_13" res="loupe"/>
+		<Item type="svg" name="Item0_14" res="ray"/>
+		<Item type="svg" name="Item0_15" res="ski"/>
+		<Item type="svg" name="Item0_16" res="squirrel"/>
+		<Item type="svg" name="Item0_17" res="swamp"/>
+		<Item type="svg" name="Item0_18" res="pin"/>
+		<Item type="svg" name="Item0_19" res="roll"/>
+		<Item type="svg" name="Item0_20" res="bottle"/>
+		<Item type="svg" name="Item0_21" res="fork"/>
+		<Item type="svg" name="Item0_22" res="pitchfork"/>
+		<Item type="svg" name="Item0_23" res="wolf"/>
+		<Item type="svg" name="Item0_24" res="waves"/>
+		<Item type="svg" name="Item0_25" res="shark_mult"/>
+		<Item type="svg" name="Item0_26" res="eyes"/>
+		<Item type="svg" name="Item0_27" res="globe"/>
+		<Item type="svg" name="Item0_28" res="white_cloud"/>
+		<Item type="svg" name="Item0_29" res="pigeon"/>
+		<Item type="svg" name="Item0_30" res="spruce"/>
+		<Item type="svg" name="Item0_31" res="patch"/>
+		<Item type="svg" name="Item0_32" res="needle"/>
+		<Item type="svg" name="Item0_33" res="clown"/>
+		<Item type="svg" name="Item0_34" res="coil"/>
+		<Item type="svg" name="Item0_35" res="sausage"/>
+		<Item type="svg" name="Item0_36" res="kolobok"/>
+		<Item type="svg" name="Item0_37" res="hood"/>
+		<Item type="svg" name="Item0_38" res="moneybox"/>
+		<Item type="svg" name="Item0_39" res="doll"/>
+		<Item type="svg" name="Item0_40" res="broom"/>
+		<Item type="svg" name="Item0_41" res="milk"/>
+		<Item type="svg" name="Item0_42" res="hammer"/>
+		<Item type="svg" name="Item0_43" res="salad"/>
+		<Item type="svg" name="Item0_44" res="beet"/>
+		<Item type="svg" name="Item0_45" res="elephant"/>
+		<Item type="svg" name="Item0_46" res="salty"/>
+		<Item type="svg" name="Item0_47" res="glass"/>
+		<Item type="svg" name="Item0_48" res="t_shirt"/>
+		<Item type="svg" name="Item0_49" res="apple"/>
+		<!--Item type="svg" name="Item0_50" res="eraser"/-->
+		
+		<Item type="svg" name="Item1_0"  res="cancer"/>
+		<Item type="svg" name="Item1_1"  res="rainbow"/>
+		<Item type="svg" name="Item1_2"  res="rocket"/>
+		<Item type="svg" name="Item1_3"  res="racquet"/>
+		<Item type="svg" name="Item1_4"  res="rose"/>
+		<Item type="svg" name="Item1_5"  res="shirt"/>
+		<Item type="svg" name="Item1_6"  res="hands"/>
+		<Item type="svg" name="Item1_7"  res="pen"/>
+		<Item type="svg" name="Item1_8"  res="fish"/>
+		<Item type="svg" name="Item1_9"  res="doctor"/>
+		<Item type="svg" name="Item1_10" res="fence"/>
+		<Item type="svg" name="Item1_11" res="kefir"/>
+		<Item type="svg" name="Item1_12" res="mosquito"/>
+		<Item type="svg" name="Item1_13" res="amanita"/>
+		<Item type="svg" name="Item1_14" res="cook"/>
+		<Item type="svg" name="Item1_15" res="tomato"/>
+		<Item type="svg" name="Item1_16" res="samovar"/>
+		<Item type="svg" name="Item1_17" res="traffic_light"/>
+		<Item type="svg" name="Item1_18" res="sparrow"/>
+		<Item type="svg" name="Item1_19" res="cheese"/>
+		<Item type="svg" name="Item1_20" res="tiger"/>
+		<Item type="svg" name="Item1_21" res="watermelon"/>
+		<Item type="svg" name="Item1_22" res="harp"/>
+		<Item type="svg" name="Item1_23" res="drum"/>
+		<Item type="svg" name="Item1_24" res="ram"/>
+		<Item type="svg" name="Item1_25" res="beard"/>
+		<Item type="svg" name="Item1_26" res="burattino"/>
+		<Item type="svg" name="Item1_27" res="cheesecake"/>
+		<Item type="svg" name="Item1_28" res="bucket"/>
+		<Item type="svg" name="Item1_29" res="sparrow"/>
+		<Item type="svg" name="Item1_30" res="crow"/>
+		<Item type="svg" name="Item1_31" res="gate"/>
+		<Item type="svg" name="Item1_32" res="garage"/>
+		<Item type="svg" name="Item1_33" res="accordion"/>
+		<Item type="svg" name="Item1_34" res="guitar"/>
+		<Item type="svg" name="Item1_35" res="mountain"/>
+		<Item type="svg" name="Item1_36" res="peas"/>
+		<Item type="svg" name="Item1_37" res="truck"/>
+		<Item type="svg" name="Item1_38" res="pear"/>
+		<Item type="svg" name="Item1_39" res="road"/>
+		<Item type="svg" name="Item1_40" res="dragon"/>
+		<Item type="svg" name="Item1_41" res="gift"/>
+		<Item type="svg" name="Item1_42" res="notebook"/>
+		<Item type="svg" name="Item1_43" res="tart"/>
+		<Item type="svg" name="Item1_44" res="grass"/>
+		<Item type="svg" name="Item1_45" res="tram"/>
+		<Item type="svg" name="Item1_46" res="throne"/>
+		<Item type="svg" name="Item1_47" res="tube"/>
+		<Item type="svg" name="Item1_48" res="pants"/>
+		<Item type="svg" name="Item1_49" res="apron"/>
+		<!--Item type="svg" name="Item1" res="sarafan"/-->
+	</Block>
+	
+	<Block name="LettersType_1"> <!-- C-З -->
+		<Item type="svg" name="Item0_0"  res="pig"/>
+		<Item type="svg" name="Item0_1"  res="dog"/>
+		<Item type="svg" name="Item0_2"  res="fox"/>
+		<Item type="svg" name="Item0_3"  res="elephant"/>
+		<Item type="svg" name="Item0_4"  res="owl"/>
+		<Item type="svg" name="Item0_5"  res="wasp"/>
+		<Item type="svg" name="Item0_6"  res="owl"/>
+		<Item type="svg" name="Item0_7"  res="catfish"/>
+		<Item type="svg" name="Item0_8"  res="pineapple"/>
+		<Item type="svg" name="Item0_9"  res="salad"/>
+		<Item type="svg" name="Item0_10" res="beet"/>
+		<Item type="svg" name="Item0_11" res="juice"/>
+		<Item type="svg" name="Item0_12" res="salt"/>
+		<Item type="svg" name="Item0_13" res="flippers"/>
+		<Item type="svg" name="Item0_14" res="boots"/>
+		<Item type="svg" name="Item0_15" res="table"/>
+		<Item type="svg" name="Item0_16" res="chair"/>
+		<Item type="svg" name="Item0_17" res="box_chest"/>
+		<Item type="svg" name="Item0_18" res="bus"/>
+		<Item type="svg" name="Item0_19" res="plane"/>
+		<Item type="svg" name="Item0_20" res="sand"/>
+		<Item type="svg" name="Item0_21" res="dishes"/>
+		<Item type="svg" name="Item0_22" res="glass_drink"/>
+		<!--Item type="svg" name="Item0_23" res="zone"/-->
+		
+		<Item type="svg" name="Item1_0"  res="vase"/>
+		<Item type="svg" name="Item1_1"  res="mimosa"/>
+		<Item type="svg" name="Item1_2"  res="rose"/>
+		<Item type="svg" name="Item1_3"  res="izba"/>
+		<Item type="svg" name="Item1_4"  res="fence"/>
+		<Item type="svg" name="Item1_5"  res="TV"/>
+		<Item type="svg" name="Item1_6"  res="birch3"/>
+		<Item type="svg" name="Item1_7"  res="truck"/>
+		<Item type="svg" name="Item1_8"  res="star"/>
+		<Item type="svg" name="Item1_9"  res="pheasant"/>
+		<Item type="svg" name="Item1_10" res="plant"/>
+		<Item type="svg" name="Item1_11" res="lock"/>
+		<Item type="svg" name="Item1_12" res="patch"/>
+		<Item type="svg" name="Item1_13" res="umbrella"/>
+		<!--Item type="svg" name="Item1_14" res="dragonfly"/-->
+	</Block>
+	
+	<Block name="LettersType_2"> <!-- С-Ц -->
+	    <Item type="svg" name="Item0_0"  res="dog"/>
+		<Item type="svg" name="Item0_1"  res="fox"/>
+		<Item type="svg" name="Item0_2"  res="elephant"/>
+		<Item type="svg" name="Item0_3"  res="owl"/>
+		<Item type="svg" name="Item0_4"  res="wasp"/>
+		<Item type="svg" name="Item0_5"  res="owl"/>
+		<Item type="svg" name="Item0_6"  res="catfish"/>
+		<Item type="svg" name="Item0_7"  res="pineapple"/>
+		<Item type="svg" name="Item0_8"  res="salad"/>
+		<Item type="svg" name="Item0_9"  res="beet"/>
+		<Item type="svg" name="Item0_10" res="juice"/>
+		<Item type="svg" name="Item0_11" res="salt"/>
+		<Item type="svg" name="Item0_12" res="flippers"/>
+		<Item type="svg" name="Item0_13" res="boots"/>
+		<Item type="svg" name="Item0_14" res="table"/>
+		<Item type="svg" name="Item0_15" res="chair"/>
+		<Item type="svg" name="Item0_16" res="box_chest"/>
+		<Item type="svg" name="Item0_17" res="bus"/>
+		<Item type="svg" name="Item0_18" res="plane"/>
+		<Item type="svg" name="Item0_19" res="sand"/>
+		<Item type="svg" name="Item0_20" res="dishes"/>
+		<Item type="svg" name="Item0_21" res="glass_drink"/>
+		<!--Item type="svg" name="Item0_22" res="zone"/-->
+		
+		<Item type="svg" name="Item1_0"  res="hen"/>
+		<Item type="svg" name="Item1_1"  res="sheep"/>
+		<Item type="svg" name="Item1_2"  res="flower"/>
+		<Item type="svg" name="Item1_3"  res="well"/>
+		<Item type="svg" name="Item1_4"  res="ladder"/>
+		<Item type="svg" name="Item1_5"  res="cucumber"/>
+		<Item type="svg" name="Item1_6"  res="finger"/>
+		<Item type="svg" name="Item1_7"  res="button"/>
+		<Item type="svg" name="Item1_8"  res="motobike"/>
+		<Item type="svg" name="Item1_9"  res="chicken"/>
+		<Item type="svg" name="Item1_10" res="egg"/>
+		<Item type="svg" name="Item1_11" res="chain"/>
+		<Item type="svg" name="Item1_12" res="prizep"/>
+		<Item type="svg" name="Item1_13" res="king"/>
+		<Item type="svg" name="Item1_14" res="palace"/>
+		<Item type="svg" name="Item1_15" res="lizard"/>
+		<!--Item type="svg" name="Item1" res="sun"/-->
+		<!--Item type="svg" name="Item1" res="tit"/-->
+		<!--Item type="svg" name="Item1" res="starling"/-->
+		<!--Item type="svg" name="Item1" res="caterpillar"/-->
+		<!--Item type="svg" name="Item1" res="princess"/-->
+		
+	</Block>
+	
+	<Block name="LettersType_3"> <!-- Ш-Ж -->
+	    <Item type="svg" name="Item0_0"  res="cat"/>
+		<Item type="svg" name="Item0_1"  res="horse"/>
+		<Item type="svg" name="Item0_2"  res="frog"/>
+		<Item type="svg" name="Item0_3"  res="mouse"/>
+		<Item type="svg" name="Item0_4"  res="cheesecake"/>
+		<Item type="svg" name="Item0_5"  res="pear"/>
+		<Item type="svg" name="Item0_6"  res="potato"/>
+		<Item type="svg" name="Item0_7"  res="roll_heart"/>
+		<Item type="svg" name="Item0_8"  res="shirt"/>
+		<Item type="svg" name="Item0_9"  res="header"/>
+		<Item type="svg" name="Item0_10" res="scarf"/>
+		<Item type="svg" name="Item0_11" res="closet"/>
+		<Item type="svg" name="Item0_12" res="hat"/>
+		<Item type="svg" name="Item0_13" res="car"/>
+		<Item type="svg" name="Item0_14" res="cherry"/>
+		<Item type="svg" name="Item0_15" res="bandy"/>
+		<Item type="svg" name="Item0_16" res="cane"/>
+		<Item type="svg" name="Item0_17" res="bump"/>
+		<Item type="svg" name="Item0_18" res="shower"/>
+		<Item type="svg" name="Item0_19" res="tower"/>
+		<Item type="svg" name="Item0_20" res="pillow"/>
+		<!--Item type="svg" name="Item0_21" res="shawl"/-->
+		<!--Item type="svg" name="Item0_22" res="cup"/-->
+		<!--Item type="svg" name="Item0_23" res="izba"/!-->
+		
+		<Item type="svg" name="Item1_0" res="bug"/>
+		<Item type="svg" name="Item1_1" res="ice_cream"/>
+		<Item type="svg" name="Item1_2" res="patty"/>
+		<Item type="svg" name="Item1_3" res="puddle"/>
+		<Item type="svg" name="Item1_4" res="scissors"/>
+		<Item type="svg" name="Item1_5" res="rain"/>
+		<Item type="svg" name="Item1_6" res="snowflake"/>
+		<!--Item type="svg" name="Item1" res="mitten"/>
+		<Item type="svg" name="Item1" res="mittens"/-->
+		<!--Item type="svg" name="Item1" res="mug"/-->
+		<!--Item type="svg" name="Item1" res="spoon"/-->
+		
+	</Block>
+	
+	<Block name="LettersType_4"> <!-- Ч-Щ -->
+	    <Item type="svg" name="Item0_0"  res="butterfly"/>
+		<Item type="svg" name="Item0_1"  res="swallow"/>
+		<Item type="svg" name="Item0_2"  res="ray"/>
+		<Item type="svg" name="Item0_3"  res="eggplant1"/>
+		<Item type="svg" name="Item0_4"  res="key"/>
+		<Item type="svg" name="Item0_5"  res="pen"/>
+		<Item type="svg" name="Item0_6"  res="rod"/>
+		<Item type="svg" name="Item0_7"  res="clock"/>
+		<Item type="svg" name="Item0_8"  res="stove"/>
+		<Item type="svg" name="Item0_9"  res="brick"/>
+		<Item type="svg" name="Item0_10" res="matches"/>
+		<Item type="svg" name="Item0_11" res="net"/>
+		<Item type="svg" name="Item0_12" res="squash"/>
+		<Item type="svg" name="Item0_13" res="tea"/>
+		<Item type="svg" name="Item0_14" res="glasses"/>
+		<Item type="svg" name="Item0_15" res="worm"/>
+		<Item type="svg" name="Item0_16" res="grasshopper"/>
+		<!--Item type="svg" name="Item0_17" res="cup"/-->
+		
+		<Item type="svg" name="Item1_0"  res="pike"/>
+		<Item type="svg" name="Item1_1"  res="shield"/>
+		<Item type="svg" name="Item1_2"  res="puppy"/>
+		<Item type="svg" name="Item1_3"  res="brush"/>
+		<Item type="svg" name="Item1_4"  res="pliers"/>
+		<Item type="svg" name="Item1_5"  res="vegetables"/>
+		<Item type="svg" name="Item1_6"  res="lizard"/>
+		<Item type="svg" name="Item1_7"  res="raincoat"/>
+		<Item type="svg" name="Item1_8"  res="borsch"/>
+		<Item type="svg" name="Item1_9"  res="box"/>
+		<Item type="svg" name="Item1_10" res="clothespin"/>
+		<!--Item type="svg" name="Item1" res="pliers"/-->
+		
+	
+	</Block>
+	
+	<Block name="LettersType_5"> <!-- Л-ЛЬ -->
+	    <Item type="svg" name="Item0_0"  res="strawberry"/>
+		<Item type="svg" name="Item0_1"  res="varnish"/>
+		<Item type="svg" name="Item0_2"  res="lamp"/>
+		<Item type="svg" name="Item0_3"  res="eraser"/>
+		<Item type="svg" name="Item0_4"  res="swallow"/>
+		<Item type="svg" name="Item0_5"  res="flippers"/>
+		<Item type="svg" name="Item0_6"  res="forehead"/>
+		<Item type="svg" name="Item0_7"  res="boat"/>
+		<Item type="svg" name="Item0_8"  res="spoon"/>
+		<Item type="svg" name="Item0_9"  res="shovel"/>
+		<Item type="svg" name="Item0_10" res="moose"/>
+		<Item type="svg" name="Item0_11" res="puddle"/>
+		<Item type="svg" name="Item0_12" res="onion"/>
+		<Item type="svg" name="Item0_13" res="moon"/>
+		<Item type="svg" name="Item0_14" res="loupe"/>
+		<Item type="svg" name="Item0_15" res="ray"/>
+		<Item type="svg" name="Item0_16" res="fork"/><!--Вилка-->
+		<Item type="svg" name="Item0_17" res="pitchfork"/>
+		<Item type="svg" name="Item0_18" res="wolf"/>
+		<Item type="svg" name="Item0_19" res="waves"/>
+		<Item type="svg" name="Item0_20" res="shark_mult"/>
+		<Item type="svg" name="Item0_21" res="eyes"/>
+		<Item type="svg" name="Item0_22" res="globe"/>
+		<Item type="svg" name="Item0_23" res="white_cloud"/>
+		<Item type="svg" name="Item0_24" res="pigeon"/>
+		<!--Item type="svg" name="Item0_25" res="spruce"/--><!--Правка ёлку поменять на вилку. Но вилка уже есть-->
+		<Item type="svg" name="Item0_26" res="patch"/>
+		<Item type="svg" name="Item0_27" res="needle"/>
+		<Item type="svg" name="Item0_28" res="clown"/>
+		<Item type="svg" name="Item0_29" res="coil"/>
+		<Item type="svg" name="Item0_30" res="sausage"/>
+		<Item type="svg" name="Item0_31" res="kolobok"/>
+		<Item type="svg" name="Item0_32" res="hood"/>
+		<Item type="svg" name="Item0_33" res="moneybox"/>
+		<Item type="svg" name="Item0_34" res="doll"/>
+		
+		
+		<Item type="svg" name="Item1_0"  res="album"/>
+		<Item type="svg" name="Item1_1"  res="orange"/>
+		<Item type="svg" name="Item1_2"  res="pancake"/>
+		<Item type="svg" name="Item1_3"  res="bagel"/>
+		<Item type="svg" name="Item1_4"  res="valenok"/>
+		<Item type="svg" name="Item1_5"  res="knapweed"/>
+		<Item type="svg" name="Item1_6"  res="waffles"/>
+		<Item type="svg" name="Item1_7"  res="earth"/>
+		<Item type="svg" name="Item1_8"  res="glue"/>
+		<Item type="svg" name="Item1_9"  res="maple"/>
+		<Item type="svg" name="Item1_10" res="cell"/>
+		<Item type="svg" name="Item1_11" res="beak"/>
+		<Item type="svg" name="Item1_12" res="key"/>
+		<Item type="svg" name="Item1_13" res="bandy"/>
+		<Item type="svg" name="Item1_14" res="knee"/>
+		<Item type="svg" name="Item1_15" res="wheel"/>
+		<Item type="svg" name="Item1_16" res="ring"/>
+		<Item type="svg" name="Item1_17" res="swan"/>
+		<Item type="svg" name="Item1_18" res="lion"/><!--Лев-->
+		<!--Item type="svg" name="Item1_19" res="lego"/--><!--Правка лего поменять на льва. Но лев уже есть-->
+		<Item type="svg" name="Item1_20" res="bailer"/>
+		<Item type="svg" name="Item1_21" res="tape"/>
+		<Item type="svg" name="Item1_22" res="forest"/>
+		<Item type="svg" name="Item1_23" res="ladder"/>
+		<Item type="svg" name="Item1_24" res="pilot"/>
+		<Item type="svg" name="Item1_25" res="lemon"/>
+		<Item type="svg" name="Item1_26" res="ruler"/>
+		<Item type="svg" name="Item1_27" res="fox"/>
+		<Item type="svg" name="Item1_28" res="leaf"/>
+		<!--Item type="svg" name="Item1" res="dish"/-->
+		<!--Item type="svg" name="Item1" res="spruce"/-->
+
+	</Block>
+	
+	<Block name="LettersType_6"> <!-- Р-РЬ -->
+	    <Item type="svg" name="Item0_0"  res="watermelon"/>
+		<Item type="svg" name="Item0_1"  res="harp"/>
+		<Item type="svg" name="Item0_2"  res="drum"/>
+		<Item type="svg" name="Item0_3"  res="ram"/>
+		<Item type="svg" name="Item0_4"  res="beard"/>
+		<Item type="svg" name="Item0_5"  res="burattino"/>
+		<Item type="svg" name="Item0_6"  res="bucket"/>
+		<Item type="svg" name="Item0_7"  res="sparrow"/>
+		<Item type="svg" name="Item0_8"  res="crow"/>
+		<Item type="svg" name="Item0_9"  res="gate"/>
+		<Item type="svg" name="Item0_10" res="garage"/>
+		<Item type="svg" name="Item0_11" res="guitar"/>
+		<Item type="svg" name="Item0_12" res="mountain"/>
+		<Item type="svg" name="Item0_13" res="peas"/>
+		<Item type="svg" name="Item0_14" res="truck"/>
+		<Item type="svg" name="Item0_15" res="pear"/>
+		<Item type="svg" name="Item0_16" res="road"/>
+		<Item type="svg" name="Item0_17" res="doctor"/>
+		<Item type="svg" name="Item0_18" res="dragon"/>
+		<Item type="svg" name="Item0_19" res="parachute"/>
+		<Item type="svg" name="Item0_20" res="girafe"/>
+		<Item type="svg" name="Item0_21" res="fence"/>
+		<Item type="svg" name="Item0_22" res="caviar"/>
+		<Item type="svg" name="Item0_23" res="map"/>
+		<Item type="svg" name="Item0_24" res="kangaroo"/>
+		<Item type="svg" name="Item0_25" res="kefir"/>
+		<Item type="svg" name="Item0_26" res="mosquito"/>
+		<Item type="svg" name="Item0_27" res="cow"/>
+		<Item type="svg" name="Item0_28" res="bed"/>
+		<!--Item type="svg" name="Item0" res="mug"/-->
+		
+		<Item type="svg" name="Item1_0"  res="carriage"/>
+		<Item type="svg" name="Item1_1"  res="birch3"/>
+		<Item type="svg" name="Item1_2"  res="rope"/>
+		<Item type="svg" name="Item1_3"  res="mushroom"/>
+		<Item type="svg" name="Item1_4"  res="tortoise"/>
+		<Item type="svg" name="Item1_5"  res="door"/>
+		<Item type="svg" name="Item1_6"  res="tree"/>
+		<!--Item type="svg" name="Item1_7"  res="drill"/--><!--Правка дрель поменять на табурет. Но табурет уже есть-->
+		<Item type="svg" name="Item1_8"  res="beasts"/>
+		<Item type="svg" name="Item1_9"  res="hen"/>
+		<Item type="svg" name="Item1_10" res="cucumber"/>
+		<Item type="svg" name="Item1_11" res="turnip"/>
+		<Item type="svg" name="Item1_12" res="dragonfly"/>
+		<Item type="svg" name="Item1_13" res="stool"/><!--Табурет-->
+		<Item type="svg" name="Item1_14" res="plate"/>
+		<Item type="svg" name="Item1_15" res="lizard"/>
+		<Item type="svg" name="Item1_16" res="princess"/>
+		<Item type="svg" name="Item1_17" res="clothespin"/>
+		<!--Item type="svg" name="Item1" res="weight"/-->
+		<!--Item type="svg" name="Item1" res="palace"/-->
+		<!--Item type="svg" name="Item1" res="starling"/-->
+	</Block>
+</Game>

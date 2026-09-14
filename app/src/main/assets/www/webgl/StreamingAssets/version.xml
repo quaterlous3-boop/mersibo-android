@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Version>
+
+	<Version	version="2" copyright="@Mersibo, 2026" />
+	
+	<Preloader	mersibo_games_total="0" />
+	
+	<Locale>
+	
+		<!-- Локализация текстов -->
+			<Res 	id="locale-xml" locale="ru-RU" type="xml" url="locale/ru-RU_162.xml" />
+	
+	</Locale>
+	
+	<Games>
+	
+		<!-- Библиотека ассетов-->
+			<Res 	id="resources-xml" type="xml" url="games/resources_main_171b.xml" />
+		<!-- Коллекция игр -->
+			<Res 	id="games-xml" type="xml" url="games/games_main_171b.xml"
+					client_tag="spec|parent" assets_tag="main" locale_tag="ru-RU" />
+	
+	</Games>
+	
+	<Single		assets_pack_by_window="0"
+				assets_pack_limit="4"
+				viewport_scale_limit="10"
+				memory_cache_limit="100"
+				memory_assets_limit="0"
+				memory_games_limit="0"
+				start_game_id="0"
+				/>
+
+</Version>
+

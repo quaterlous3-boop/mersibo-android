@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Localization>
+
+	<Version version="2" copyright="@Mersibo, 2025">2</Version>
+	
+	<Fonts>
+		<Item name="Book Antiqua" embedFonts="" font="" fontWeight="" fontStyle="" />
+		<Item name="Book Antiqua Bold" embedFonts="" font="" fontWeight="" fontStyle="" />
+		<Item name="Appetite" font="" embedFonts="" fontWeight="" fontStyle="" />
+	</Fonts>
+	
+	<Texts>
+	
+	<!-- Общее -->
+		<Item id="idMainAtention" text="Предупреждение!"/>
+		<Item id="idMainBack" text="Назад" />
+		<Item id="idMainBuy" text="Приобрести" />
+		<Item id="idMainCancel" text="Отмена"/>
+		<Item id="idMainClear" text="Очистить" />
+		<Item id="idMainClose" text="Закрыть" />
+		<Item id="idMainContinue" text="Хотите продолжить?"/>
+		<Item id="idMainGamesAndStudies" text="Игры и упражнения" />
+		<Item id="idMainDefault" text="По-умолчанию" />
+		<Item id="idMainED" text="Экспресс-обследование" />
+		<Item id="idMainExecute" text="Выполнить"/>
+		<Item id="idMainExit" text="Выход" />
+		<Item id="idMainKK" text="Конструктор картинок" />
+		<Item id="idMainLoading" text="Загрузка..." />
+		<Item id="idMainNo" text="Нет" />
+		<Item id="idMainPlay" text="Играть" />
+		<Item id="idMainPrint" text="Напечатать" />
+		<Item id="idMainSave" text="Сохранить" />
+		<Item id="idMainSlowing" text="Медленный интернет..." />
+		<Item id="idMainYes" text="Да" />
+	
+	<!-- ErrorDialog -->
+		<Item id="idErrorTitle" text="Произошла ошибка!" />
+		<Item id="idErrorTitleSite" text="Мы можем помочь!" />
+		<Item id="idErrorTitleSingle" text="Ошибка приложения" />
+		<Item id="idErrorDetails" text="Подробности:" />
+		<Item id="idErrorReport" text="Отчёт" />
+		<Item id="idErrorCloseSite" text="Обновить" />
+		<Item id="idErrorCloseSingle" text="Закрыть" />
+		<Item id="idErrorSorry" text="Нажмите, пожалуйста, на кнопку Отчёт и вышлите полученный файл на почту &lt;a href='mailto:support@mersibo.ru'&gt;support@mersibo.ru&lt;/a&gt; нашей службе поддержки." />
+	
+	<!-- Страница ContactsListPage  -->
+		<Item id="idContactsChildren" text="Дети" />
+		<Item id="idContactsSpecs" text="Педагоги" />
+		<Item id="idContactsOrgs" text="Организации" />
+		<Item id="idContactsShowAll" text="Показать все" />
+		<Item id="idContactsHideOthers" text="Скрыть лишнее" />
+		<Item id="idContactsAddChild" text="Добавить ребёнка" />
+		<Item id="idContactsAddSpec" text="Добавить педагога" />
+		<Item id="idContactsAddOrg" text="Добавить организацию" />
+		<Item id="idContactsDelChild" text="Удаление данных ребёнка" />
+		<Item id="idContactsDelChild2" text="Это приведёт к удалению всех данных ребёнка, в том числе и в других приложениях Мерсибо." />
+		<Item id="idContactsDelSpec" text="Удаление данных педагога" />
+		<Item id="idContactsDelSpec2" text="Это приведёт к удалению данных о педагоге, в том числе и во всех документах детей." />
+		<Item id="idContactsDelOrg" text="Удаление данных организации" />
+		<Item id="idContactsDelOrg2" text="Это приведёт к удалению данных об организации." />
+		<Item id="idContactsDelConfirmation" text="Внимание! Это необратимая операция. Вы не сможете восстановить удалённые сейчас данные!" />
+	
+	<!-- Страница UnityPlayer -->
+		<Item id="idPreloaderAttention" text="Внимание!" />
+		<Item id="idPreloaderAnotherSession" text="У Вас открыт сайт Мерсибо или это приложение работает на другом устройстве.#bre;Сохраните там изменения, чтобы не потерять их." />
+		<Item id="idPreloaderLaunchHere" text="Запустить на этом устройстве" />
+		<Item id="idPreloaderNoAccess" text="У вас нет подписки для доступа к приложению" />
+		<Item id="idPreloaderNoWebGL" text="Ваш компьтер не поддерживает технологию WebGL2, необходимую для запуска данной игры.#bre;Обратитесь в нашу техподдержку." />
+		<Item id="idPreloaderLaunchOld" text="Запустить старую версию игры" />
+	
+	<!-- Страница FriendlyAppPage -->
+		<Item id="idStartAppNetStatus" text="Невозможно запустить приложение!#bre;Отсутствует сетевое подключение или связь с сайтом Мерсибо!" />
+		<Item id="idStartAppNetStatusComment" text="Восстановите подключение к интернет или обратитесь к нашей службе поддержки: &lt;a href='mailto:support@mersibo.ru'&gt;support@mersibo.ru&lt;/a&gt;#bre;Затем перезапустите приложение." />
+	
+	<!-- Game Zone GUI -->
+		<Item id="idGameZoneGameExit" text="Хочешь завершить игру?" />
+		<Item id="idGameZoneGamePlayAgain" text="Хочешь сыграть снова?" />
+		<Item id="idGameZoneMicGain" text="Громкость микрофона:" />
+		<Item id="idGameZoneMicThreshold" text="Уровень шума:" />
+		<Item id="idGameZoneGamePrintDoc" text="Получите увлекательное#br;дополнительное задание#br;к этой игре!" />
+		<Item id="idGameZoneHelpPurpose" text="Цель игры:" />
+		<Item id="idGameZoneHelpProcess" text="Правила:" />
+		<Item id="idGameZoneHelpAge" text="Возраст:" />
+		<Item id="idGameZoneHelpAdvice" text="Рекомендации:" />
+		<Item id="idGameZoneSoundVolume" text="Громкость:" />
+		<Item id="idGameZoneSoundSounds" text="Звуки:" />
+		<Item id="idGameZoneSoundSoundOn" text="Звук" />
+		<Item id="idGameZoneSoundMusicOn" text="Музыка" />
+		<Item id="idGameZoneSoundDictorOn" text="Диктор" />
+		<Item id="idGameZonePlayerQuality" text="Качество графики:" />
+		<Item id="idGameZonePlayerQLow" text="Низкое" />
+		<Item id="idGameZonePlayerQHight" text="Высокое" />
+		<Item id="idGameZonePlayerCache" text="Очистить кэш:" />
+		<Item id="idGameZonePlayerCacheText" text="Кэш - это графика игр, сохранённая на компьютере пользователя. Это позволяет сократить время загрузки игр, но также занимает дополнительное место на диске пользователя.#br;Если вам нужно освободить место на диске - очистите кэш игр." />
+	
+	
+	
+	
+	
+	
+	<!-- Old -->
+		<Item id="childRecordsNoRecords" text="У Вас пока нет записей."/>
+		<Item id="errorOccured" text="Произошла ошибка!"/>
+		<Item id="errorDetails" text="Подробности:"/>
+		<Item id="errorTitle2Site" text="Мы можем помочь!"/>
+		<Item id="errorTitle2Single" text="Ошибка приложения"/>
+		<Item id="errorReportButton" text="Отчёт"/>
+		<Item id="errorCloseButtonSite" text="Обновить"/>
+		<Item id="errorCloseButtonSingle" text="Закрыть"/>
+		<Item id="errorReportHeader" text="Уважаемый Пользователь!#brw;#brw;Этот файл содержит детальное описание возникшей проблемы.#brw;Cохраните файл для последующей отправки его в службу технической поддержки продукта.#brw;E-mail: support@mersibo.ru#brw;Адрес в Интернет: https://mersibo.ru#brw;Телефон: 8 (800) 775 7520"/>
+		<Item id="errorSorry1" text="Нажмите, пожалуйста, на кнопку Отчёт и вышлите полученный файл на почту"/>
+		<Item id="errorSorry2" text="нашей службе поддержки или свяжитесь с нами по скайпу"/>
+		<Item id="errorDevice" text="Необходимое устройство не было найдено."/>
+		<Item id="errorDeviceNotAllowed" text="Вам необходимо разрешить использование устройства в этой программе."/>
+		<Item id="errorFileFormat" text="Невозможно загрузить файл!#br;Неверный формат файла."/>
+		<Item id="errorPrinting" text="Произошла ошибка при печати документа: "/>
+		<Item id="errorReplaceContactWithSpecData" text="Ошибка при замене данных контакта (присутствуют данные специалиста)."/>
+		<Item id="errorSaveFileLocaly" text="Ошибка при сохранении локального файла: "/>
+		<Item id="errorTransferContactIn" text="Указаны неверные входные данные для передачи контакта."/>
+		<Item id="errorTransferContactLimit" text="У указанного родителя исчерпан лимит на создание контактов."/>
+		<Item id="errorTransferContactUnknown" text="Неизвестная ошибка."/>
+		<Item id="errorTransferMDaysIn" text="Указаны неверные входные данные для передачи дней Мерсибо другому пользователю."/>
+		<Item id="errorWrongClientType1" text="Извините, но данные этого клиента не соответствует Вашему статусу. Доступ имеют только специалисты."/>
+		<Item id="errorWrongClientType2" text="Извините, но данные этого клиента не соответствует Вашему статусу. Доступ имеют только родители."/>
+		<Item id="gameDescError" text="Не найдено описание игры: "/>
+		<Item id="gameGameObjectError" text="Не найден указанный игровой объект: "/>
+		<Item id="gameIconLoadingError" text="Не удалось загрузить иконку: "/>
+		<Item id="gameLoadBlockError" text="Не найден указанный блок ресурсов: "/>
+		<Item id="gameLoadError" text="Ошибка при загрузке игры.#br;Попробуйте в другой раз."/>
+		<Item id="gameLoadResError" text="Ошибка при загрузке ресурсов: "/>
+		<Item id="gameLoadProgress" text="Загрузка"/>
+		<Item id="gamePanelInitError" text="Ошибка при загрузке игрового интерфейса."/>
+		<Item id="gameParamError" text="Ошибка в игровых настройках."/>
+		<Item id="gameResDescError" text="Описание ресурса не найдено: "/>
+		<Item id="infoDemoWelcomeTitle" text="Добро пожаловать!"/>
+		<Item id="infoMoney" text="Текущая информация по Вашему балансу."/>
+		<Item id="infoOpLockedTitle" text="Операция ограничена в демо-версии"/>
+		<Item id="infoOpLocked" text="Уважаемый пользователь!"/>
+		<Item id="infoOpLocked2" text="Вы превышаете установленный лимит для демо-версии. Для снятия ограничения оформите платную подписку."/>
+		<Item id="infoOpLockedLink" text="Пополните счет или оформите платную подписку."/>
+		<Item id="mp3LoadError" text="Произошла ошибка при загрузке звукового файла!"/>
+		<Item id="mp3EncodeError" text="Произошла ошибка при декодировании звукового потока!"/>
+		<Item id="mp3EncodeProgress" text="Подождите,#br;запись сохраняется."/>
+		<Item id="mp3LoadProgress" text="Подождите,#br;идёт загрузка звукового файла."/>
+		<Item id="mp3NoSoundRecords" text="У Вас пока нет звуковых записей."/>
+		<Item id="questionRemove" text="Внимание!#br;Это необратимая операция.#br;Вы не сможете восстановить удалённые сейчас данные!"/>
+		<Item id="questionRemoveTitle" text="Предупреждение!"/>
+		<Item id="questionContinue" text="Хотите продолжить?"/>
+		<Item id="questionNoFavGame" text="Перетащите сюда игры и упражнения,#br;которые Вы чаще всего используете.#br;#br;Запускаются игры двойным щелчком мыши#br;по названию или картинке игры или щелчком на кнопку 'Играть'."/>
+		<Item id="questionNoFavGame2" text="Для быстрого доступа к игре, перенесите её сюда."/>
+		<Item id="questionTransferContactParentHelp" text="Здесь Вы можете выбрать специалиста для занятий с Вашим ребёнком."/>
+		<Item id="questionTransferContactTitle" text="Подтверждение передачи контакта"/>
+		<Item id="questionTransferContactTitle2" text="Завершение передачи контакта"/>
+		<Item id="questionTransferMDaysTitle" text="Передача дней Мерсибо родителю"/>
+		<Item id="questionTransferMDaysToParent" text="Вы собираетесь передать дни родителю:"/>
+		<Item id="picsCnstrDemo" text="«Конструктор картинок» работает в демо-режиме. Редактирование ограничено."/>
+		<Item id="picsCnstrSaveQuestion" text="Сцена была изменена. Сохранить изменения?"/>
+		<Item id="picsCnstrClearQuestion" text="Вы действительно хотите очистить текущую сцену?"/>
+		<Item id="picsCnstrPasteQuestion" text="Текущая сцена будет заменена на сцену из буфера.#br;Продолжить?"/>
+		<Item id="picsCnstrImportQuestion" text="Текущая сцена будет заменена на сцену из файла.#br;Продолжить?"/>
+		<Item id="picsCnstrTooManyPics" text="Превышен лимит!#br;Не более 100 картинок на сцену."/>
+		<Item id="picsCnstrWrongSceneFormat" text="Невозможно загрузить сцену!#br;Неверный формат файла."/>
+		<Item id="picsCnstrSceneIsEmpty" text="Загруженная сцена пуста.#br;Её нельзя загрузить в Клуб."/>
+		<Item id="picsCnstrPrintOpDesc" text="Печать текущей сцены на принтере."/>
+		<Item id="picsCnstrExportPNGOpDesc" text="Сохранение текущей сцены в PNG-картинке."/>
+		<Item id="picsCnstrExportMRSOpDesc" text="Экспорт текущей сцены для сохранения в MRS-файле на компьютере."/>
+		<Item id="picsCnstrImportMRSOpDesc" text="Импорт сцены из MRS-файла на компьютере."/>
+		<Item id="picsCnstrNoneOpDesc" text="Выберите нужную вам операцию."/>
+		<Item id="picsCnstrClubPublishOk" text="Ваша сцена принята на модерацию.#br;Мы вышлем вам письмо на почту, когда наши модераторы подтвердят публикацию."/>
+		<Item id="picsCnstrClubPublishFail" text="Что-то пошло не так.#br;Попробуйте обновить страницу. Если не помогло, обратитесь службу техподдержки. Попробуйте позже."/>
+		<Item id="picsCnstrNoFreeScenes" text="У Вас больше нет свободных ячеек для сохранения сцены.#br;Пожалуйста, удалите ненужные сцены и попробуйте снова."/>
+		<Item id="picsCnstrClubLocked" text="Данные функции доступны только в полном доступе!"/>
+		<Item id="registryErrorEMail" text="Поле 'Введите Ваш e-mail' обязательно для заполнения."/>
+		<Item id="registryErrorEMail2" text="Указана некорректная почта."/>
+		<Item id="registryErrorEMail3" text="Указаная почта уже используется."/>
+		<Item id="registryErrorEMail4" text="Неизвестная ошибка регистрации."/>
+		<Item id="registryErrorRole" text="Выберите роль."/>
+		<Item id="registryErrorPass" text="Требуется заполнить поле пароля."/>
+		<Item id="registryErrorPassRepeat" text="Пароли не совпадают."/>
+		<Item id="registryErrorCustomData" text="Не все данные запроса указаны правильно."/>
+		<Item id="registryTitle1" text="Зарегистрируйтесь, чтобы сыграть в эту игру"/>
+		<Item id="scheduleWait" text="Подождите.#br;Расписание создаётся..."/>
+		<Item id="scheduleMax" text="Извините, но у Вас уже слишком много расписаний.#br;Удалите ненужные и повторите снова."/>
+		<Item id="statusTransferMDaysSuccess" text="Дни успешно переданы."/>
+		<Item id="tooltipKKPrevScenes" text="Предыдущие сцены" />
+		<Item id="tooltipKKNextScenes" text="Следующие сцены" />
+		<Item id="tooltipKKSave" text="Сохранить изменения в сцене" />
+		<Item id="tooltipKKCopy" text="Копировать сцену" />
+		<Item id="tooltipKKPaste" text="Вставить сцену" />
+		<Item id="tooltipKKClear" text="Очистить сцену" />
+		<Item id="tooltipKKExportImport" text="Экспорт/импорт сцен" />
+		<Item id="tooltipKKClubPublish" text="Опубликовать сцену в Мерситеке" />
+		<Item id="tooltipKKClubSubscriptions" text="Моя коллекция сцен" />
+		<Item id="tooltipKKClubToClub" text="Перейти в Мерситеку" />
+	<!-- Browse file dialog (AIR) -->
+		<Item id="browseFileFolder" text="Выберите папку" />
+		<Item id="browseFileSaveAs" text="Сохранить как" />
+		<Item id="browseFileOpen" text="Открыть файл" />
+	<!-- Game zone gui -->
+		<Item id="gzguiLoading" text="Загружаем игру..." />
+		<Item id="gzguiButtonOk" text="Да" />
+		<Item id="gzguiButtonCancel" text="Нет" />
+		<Item id="gzguiButtonCancel2" text="Отмена" />
+		<Item id="gzguiButtonClose" text="Закрыть" />
+		<Item id="gzguiButtonPrint" text="Напечатать" />
+		<Item id="gzguiGameExit" text="Хочешь завершить игру?"/>
+		<Item id="gzguiGameNoParams" text="Для данной игры#br;настройки#br;не предусмотрены." />
+		<Item id="gzguiGamePlayAgain" text="Хочешь сыграть снова?" />
+		<Item id="gzguiGamePrintDoc" text="Получите увлекательное#br;дополнительное задание#br;к этой игре!" />
+		<Item id="gzguiHelpPurpose" text="Цель игры:" />
+		<Item id="gzguiHelpProcess" text="Правила:" />
+		<Item id="gzguiHelpAge" text="Возраст:" />
+		<Item id="gzguiHelpAdvice" text="Рекомендации:" />
+		<Item id="gzguiMicError" text="Необходимое устройство#br;не было найдено." />
+		<Item id="gzguiMicGain" text="Громкость микрофона:" />
+		<Item id="gzguiMicThreshold" text="Уровень шума:" />
+		<Item id="gzguiSoundSounds" text="Звуки:" />
+		<Item id="gzguiSoundVolume" text="Громкость:" />
+		<Item id="gzguiSoundDictorOn" text="Диктор" />
+		<Item id="gzguiSoundMusicOn" text="Музыка" />
+		<Item id="gzguiSoundSoundOn" text="Звук" />
+		<Item id="gzguiWarningPrintLocked" text="Печать и экспорт доступны только в полной версии!"/>
+		<Item id="gzguiWarningPrintLocked2" text="Печать в браузере#br;Firefox#br;не поддерживается!#br;Воспользуйтесь другим браузером."/>
+		<Item id="tooltipGameSysButtonMic" text="Настройки микрофона" />
+		<Item id="tooltipGameSysButtonSound" text="Настройки звука" />
+		<Item id="tooltipGameSysButtonHelp" text="Описание игры" />
+		<Item id="tooltipGameSysButtonRefresh" text="Запустить заново" />
+		<Item id="tooltipGameSysButtonPrev" text="К предыдущей игре" />
+		<Item id="tooltipGameSysButtonExit" text="Закрыть игру" />
+	<!-- CInterfaceGameDesc -->
+		<Item id="igamedescGameMarkText1" text="Печатные материалы" />
+		<Item id="igamedescGameMarkText2" text="Микрофон" />
+		<Item id="igamedescGameMarkText3" text="Сложность игры" />
+		<Item id="igamedescGameMarkText4" text="Возрастная категория" />
+	<!-- FavGameItemRenderer -->
+		<Item id="favgameirNoRecords" text="Для быстрого доступа к игре, перенесите её сюда." />
+		<Item id="favgameirButtonPlay" text="Играть" />
+	<!-- Child bio (CContact) -->
+		<Item id="childTickets" text="билетик|билетика|билетиков" />
+		<Item id="childTicketsGoPlay" text="Начинаем играть?" />
+		<Item id="childTicketsNotEnought" text="Не хватает билетиков?#br;Пополни свой мешок сейчас!" />
+		<Item id="childAge1" text="2-3 года" />
+		<Item id="childAge2" text="4-5 лет" />
+		<Item id="childAge3" text="6-7 лет" />
+		<Item id="childAge4" text="7-9 лет" />
+	<!-- Magazine dialog -->
+		<Item id="pricesCloseWindow" text="Закрыть" />
+	</Texts>
+
+</Localization>

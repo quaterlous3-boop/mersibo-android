@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+	<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="SoundClick" res="empty"/>
+		<Item type="mp3" name="SoundFanfary" res="win2"/><!-- Фанфары -->
+	</Block>
+	
+	<Block name="0">
+		<Item type="mp3" name="item_cat" 	res="cat"/>
+		<Item type="mp3" name="item_cow" 	res="cow"/>
+		<Item type="mp3" name="item_dog" 	res="dog"/>
+		<Item type="mp3" name="item_horse" 	res="horse"/>
+		<Item type="mp3" name="item_cock" 	res="cock"/>
+		<Item type="mp3" name="item_sheep" 	res="ram"/>
+		<Item type="mp3" name="item_mouse" 	res="mouse"/>
+		<Item type="mp3" name="item_donkey" res="donkey"/>
+		<Item type="mp3" name="item_pig" 	res="pig"/>
+		<Item type="mp3" name="item_goose" 	res="goose"/>
+		<Item type="mp3" name="item_turkey" res="turkey"/>
+	</Block>
+	
+	<Block name="1">
+		<Item type="mp3" name="item_cat" 	res="cat2"/>
+		<Item type="mp3" name="item_cow" 	res="cow2"/>
+		<Item type="mp3" name="item_dog" 	res="dog2"/>
+		<Item type="mp3" name="item_horse" 	res="horse2"/>
+		<Item type="mp3" name="item_cock" 	res="cock2"/>
+		<Item type="mp3" name="item_sheep" 	res="ram2"/>
+		<Item type="mp3" name="item_mouse" 	res="mouse2"/>
+		<Item type="mp3" name="item_donkey" res="donkey2"/>
+		<Item type="mp3" name="item_pig" 	res="pig2"/>
+		<Item type="mp3" name="item_goose" 	res="goose2"/>
+		<Item type="mp3" name="item_turkey" res="turkey2"/> 
+	</Block>
+
+</Game>

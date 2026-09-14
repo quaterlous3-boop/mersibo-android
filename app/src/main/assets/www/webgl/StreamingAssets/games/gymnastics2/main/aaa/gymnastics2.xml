@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+	<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="xml" name="XML" res="./gymnastics2_words.xml"/>	
+		<Item type="mp3" name="SoundVictory" res="boloto_victory"/><!-- Окончательная победа -->		
+		<Item type="mp3" name="SoundClick" res="car_click_1"/><!-- Клик  по Птице -->		
+		<Item type="mp3" name="Soundtrack" res="track_mid_04_carib"/>		
+	</Block>
+
+</Game>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="SoundClick" res="click1"/> 
+		<Item type="mp3" name="SoundRight" res="volk_ubegaet"/>
+		<Item type="mp3" name="SoundWrong" res="volk_oblizivaetsya"/>
+		<Item type="mp3" name="SoundVictory" res="volk_pobeda"/>
+		<Item type="mp3" name="Soundtrack" res="track4"/>
+	</Block>
+
+	<Block name="0"><!-- A -->
+		<Item type="svg" name="Item0_1" res="banana"/>
+		<Item type="svg" name="Item0_2" res="butterfly"/>
+		<Item type="svg" name="Item0_3" res="drum"/>
+		<Item type="svg" name="Item0_4" res="rabbit"/>
+		<Item type="svg" name="Item0_5" res="guitar"/>
+		<Item type="svg" name="Item0_6" res="mack"/>
+		<Item type="svg" name="Item0_7" res="cancer"/>
+		<Item type="svg" name="Item0_8" res="watermelon"/>
+		<Item type="svg" name="Item0_9" res="tank"/>
+		<Item type="svg" name="Item0_10" res="orange"/>
+		<Item type="svg" name="Item0_11" res="pineapple"/>
+		<Item type="svg" name="Item0_12" res="bus"/>
+		<Item type="svg" name="Item0_13" res="aquarium"/>
+		<Item type="svg" name="Item0_14" res="star"/>
+		<Item type="svg" name="Item0_15" res="map"/>
+		<Item type="svg" name="Item0_16" res="jar"/>
+		<Item type="svg" name="Item0_17" res="stork"/>
+		<Item type="svg" name="Item0_18" res="azbuka"/>
+		<Item type="svg" name="Item0_19" res="shark"/>
+		<Item type="svg" name="Item0_20" res="raspberry"/>
+		<Item type="svg" name="Item0_21" res="sphere"/>
+		<Item type="svg" name="Item0_22" res="mosquito"/>
+		<Item type="svg" name="Item0_23" res="flag"/>
+		
+		<Item type="svg" name="ItemExcess0_1" res="bug"/>
+		<Item type="svg" name="ItemExcess0_2" res="table"/>
+		<Item type="svg" name="ItemExcess0_3" res="cock"/>
+		<Item type="svg" name="ItemExcess0_4" res="swan"/>
+		<Item type="svg" name="ItemExcess0_5" res="wolf"/>
+		<Item type="svg" name="ItemExcess0_6" res="telephone"/>
+		<Item type="svg" name="ItemExcess0_7" res="bridge"/>
+		<Item type="svg" name="ItemExcess0_8" res="house"/>
+		<Item type="svg" name="ItemExcess0_9" res="knife"/>
+		<Item type="svg" name="ItemExcess0_10" res="feather"/>
+		<Item type="svg" name="ItemExcess0_11" res="umbrella"/>
+		<Item type="svg" name="ItemExcess0_12" res="flower"/>
+
+	</Block>
+	
+	<Block name="1"> <!--U -->
+		<Item type="svg" name="Item1_1" res="onion"/>
+		<Item type="svg" name="Item1_2" res="snail"/>
+		<Item type="svg" name="Item1_3" res="rod"/>
+		<Item type="svg" name="Item1_4" res="ear"/>
+		<Item type="svg" name="Item1_5" res="hive"/>
+		<Item type="svg" name="Item1_6" res="oak"/>
+		<Item type="svg" name="Item1_7" res="pen"/>
+		<Item type="svg" name="Item1_8" res="bag_2"/>
+		<Item type="svg" name="Item1_9" res="beads"/>
+		<Item type="svg" name="Item1_10" res="hen"/>
+		<Item type="svg" name="Item1_11" res="chair"/>
+		<Item type="svg" name="Item1_12" res="roll"/>
+		<Item type="svg" name="Item1_13" res="teacher"/>
+		<Item type="svg" name="Item1_14" res="mustache"/>
+		<Item type="svg" name="Item1_15" res="duck"/>
+		<!--<Item type="svg" name="Item1_16" res="iron"/>-->
+		<Item type="svg" name="Item1_17" res="kangaroo"/>
+		<Item type="svg" name="Item1_18" res="her_shoes"/>
+		<Item type="svg" name="Item1_19" res="hands"/>
+		<Item type="svg" name="Item1_20" res="booth"/>
+		<Item type="svg" name="Item1_21" res="node"/>
+		<Item type="svg" name="Item1_22" res="petrushka"/>
+		<Item type="svg" name="Item1_23" res="sushki"/>
+		<Item type="svg" name="Item1_24" res="dishes"/>
+		<Item type="svg" name="Item1_25" res="cheesecake"/>
+		<Item type="svg" name="Item1_26" res="pear"/>
+		<Item type="svg" name="Item1_27" res="mug"/>
+		<Item type="svg" name="Item1_28" res="range"/>
+		<Item type="svg" name="Item1_29" res="bug"/>
+		<Item type="svg" name="Item1_30" res="spyder"/>
+		
+		<Item type="svg" name="ItemExcess1_1" res="tart"/>
+		<Item type="svg" name="ItemExcess1_2" res="dress"/>
+		<Item type="svg" name="ItemExcess1_3" res="swallow"/>
+		<Item type="svg" name="ItemExcess1_4" res="blanket"/>
+		<Item type="svg" name="ItemExcess1_5" res="girl"/>
+		<Item type="svg" name="ItemExcess1_6" res="tiger"/>
+		<Item type="svg" name="ItemExcess1_7" res="book"/>
+		<Item type="svg" name="ItemExcess1_8" res="scissors"/>
+		<Item type="svg" name="ItemExcess1_9" res="catfish"/>
+		<Item type="svg" name="ItemExcess1_10" res="bear"/>
+		<Item type="svg" name="ItemExcess1_11" res="closet"/>
+		<Item type="svg" name="ItemExcess1_12" res="snowflake"/>
+		
+	</Block>
+	
+	<Block name="2"><!--O -->
+		<Item type="svg" name="Item2_1" res="window"/>
+		<Item type="svg" name="Item2_2" res="bucket"/>
+		<Item type="svg" name="Item2_3" res="feather"/>
+		<Item type="svg" name="Item2_4" res="hoop"/>
+		<Item type="svg" name="Item2_5" res="white_cloud"/>
+		<Item type="svg" name="Item2_6" res="sheep"/>
+		<Item type="svg" name="Item2_7" res="wasp"/>
+		<Item type="svg" name="Item2_8" res="footwear"/>
+		<Item type="svg" name="Item2_9" res="order"/>
+		<Item type="svg" name="Item2_10" res="juice"/>
+		<Item type="svg" name="Item2_11" res="catfish"/>
+		<Item type="svg" name="Item2_12" res="tart"/>
+		<Item type="svg" name="Item2_13" res="telephone"/>
+		<Item type="svg" name="Item2_14" res="elephant"/>
+		<Item type="svg" name="Item2_15" res="table"/>
+		<Item type="svg" name="Item2_16" res="wing"/>
+		<Item type="svg" name="Item2_17" res="wheel"/>
+		<Item type="svg" name="Item2_18" res="ring"/>
+		<Item type="svg" name="Item2_19" res="coat"/>
+		<Item type="svg" name="Item2_20" res="rose"/>
+		<Item type="svg" name="Item2_21" res="house"/>
+		<Item type="svg" name="Item2_22" res="bone"/>
+		<Item type="svg" name="Item2_23" res="raccoon"/>
+		<Item type="svg" name="Item2_24" res="tail"/>
+		<Item type="svg" name="Item2_25" res="letter"/>
+		<Item type="svg" name="Item2_26" res="kolobok"/>
+		<Item type="svg" name="Item2_27" res="axe"/>
+		
+		<Item type="svg" name="ItemExcess2_1" res="clock"/>
+		<Item type="svg" name="ItemExcess2_2" res="door"/>
+		<Item type="svg" name="ItemExcess2_3" res="cock"/>
+		<Item type="svg" name="ItemExcess2_4" res="notebook"/>
+		<Item type="svg" name="ItemExcess2_5" res="tent"/>
+		<Item type="svg" name="ItemExcess2_6" res="eyes"/>
+		<Item type="svg" name="ItemExcess2_7" res="doll"/>
+		<Item type="svg" name="ItemExcess2_8" res="pig"/>
+		<Item type="svg" name="ItemExcess2_9" res="stove"/>
+		<Item type="svg" name="ItemExcess2_10" res="ball"/>
+		<Item type="svg" name="ItemExcess2_11" res="car"/>
+	
+	</Block>
+	
+	<Block name="3"><!--I -->
+		<Item type="svg" name="Item3_1" res="whale"/>
+		<Item type="svg" name="Item3_2" res="needle"/>
+		<Item type="svg" name="Item3_3" res="willow"/>
+		<Item type="svg" name="Item3_4" res="indian"/>
+		<Item type="svg" name="Item3_5" res="turkey"/>
+		<Item type="svg" name="Item3_6" res="fork"/>
+		<Item type="svg" name="Item3_7" res="pancake"/>
+		<Item type="svg" name="Item3_8" res="bandage"/>
+		<Item type="svg" name="Item3_9" res="boots"/>
+		<Item type="svg" name="Item3_10" res="weight"/>
+		<Item type="svg" name="Item3_11" res="sieve"/>
+		<Item type="svg" name="Item3_12" res="plum"/>
+		<Item type="svg" name="Item3_13" res="fox"/>
+		<Item type="svg" name="Item3_14" res="raspberry"/>
+		<Item type="svg" name="Item3_15" res="caviar"/>
+		<Item type="svg" name="Item3_16" res="web"/>
+		<Item type="svg" name="Item3_17" res="book"/>
+		<Item type="svg" name="Item3_18" res="kefir"/>
+		<Item type="svg" name="Item3_19" res="shoe"/>
+		<Item type="svg" name="Item3_20" res="leaf"/>
+		<Item type="svg" name="Item3_21" res="mushroom"/>
+		
+		<Item type="svg" name="ItemExcess3_1" res="cat"/>
+		<Item type="svg" name="ItemExcess3_2" res="table"/>
+		<Item type="svg" name="ItemExcess3_3" res="mole"/>
+		<Item type="svg" name="ItemExcess3_4" res="chair"/>
+		<Item type="svg" name="ItemExcess3_5" res="sphere"/>
+		<Item type="svg" name="ItemExcess3_6" res="cabbage"/>
+		<Item type="svg" name="ItemExcess3_7" res="banana"/>
+		<Item type="svg" name="ItemExcess3_8" res="dog"/>
+		<Item type="svg" name="ItemExcess3_9" res="spruce"/>
+		<Item type="svg" name="ItemExcess3_10" res="pencil"/>
+		
+	</Block>
+
+</Game>

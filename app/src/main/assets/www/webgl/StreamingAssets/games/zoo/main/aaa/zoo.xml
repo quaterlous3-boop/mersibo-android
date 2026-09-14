@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Game>
+	<Version version="2" copyright="@Mersibo, 2021" />
+	<Block name="Default">
+		<Item type="mp3" name="SoundClick" res="empty"/>
+	</Block>
+	
+	<Block name="0">
+		<Item type="mp3" name="item_frog" 		res="frog"/>
+		<Item type="mp3" name="item_duck" 		res="duck"/>
+		<Item type="mp3" name="item_bear" 		res="bear"/>
+		<Item type="mp3" name="item_bee" 		res="bee"/>
+		<Item type="mp3" name="item_crow" 		res="crow"/>
+		<Item type="mp3" name="item_gull" 		res="seagull"/>
+		<Item type="mp3" name="item_elephant" 	res="elephant"/>
+		<Item type="mp3" name="item_cuckoo" 	res="cuckoo"/>
+		<Item type="mp3" name="item_owl" 		res="owl"/>
+		<Item type="mp3" name="item_wolf" 		res="wolf"/>
+		<Item type="mp3" name="item_zebra" 		res="zebra"/>
+	</Block>
+	
+	<Block name="1">
+		<Item type="mp3" name="item_frog" 		res="frog2"/>
+		<Item type="mp3" name="item_duck" 		res="duck2"/>
+		<Item type="mp3" name="item_bear" 		res="bear2"/>
+		<Item type="mp3" name="item_bee" 		res="bee2"/>
+		<Item type="mp3" name="item_crow" 		res="crow2"/>
+		<Item type="mp3" name="item_gull" 		res="seagull2"/>
+		<Item type="mp3" name="item_elephant" 	res="elephant2"/>
+		<Item type="mp3" name="item_cuckoo" 	res="cuckoo2"/>
+		<Item type="mp3" name="item_owl" 		res="owl2"/>
+		<Item type="mp3" name="item_wolf" 		res="wolf2"/>
+		<Item type="mp3" name="item_zebra" 		res="zebra2"/>
+	</Block>
+
+</Game>

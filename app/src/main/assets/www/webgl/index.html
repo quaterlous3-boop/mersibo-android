@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+<script>
+(function() {
+  function logToServer(type, args) {
+    try {
+      var msg = Array.prototype.slice.call(args).map(function(a) {
+        return typeof a === 'object' ? JSON.stringify(a) : String(a);
+      }).join(' ');
+      fetch('/api/client-log', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ type: type, msg: msg, t: Date.now() })
+      }).catch(function(){});
+    } catch(e) {}
+  }
+  var origLog = console.log;
+  console.log = function() {
+    logToServer('LOG', arguments);
+    origLog.apply(console, arguments);
+  };
+  var origErr = console.error;
+  console.error = function() {
+    logToServer('ERR', arguments);
+    origErr.apply(console, arguments);
+  };
+  var origWarn = console.warn;
+  console.warn = function() {
+    logToServer('WARN', arguments);
+    origWarn.apply(console, arguments);
+  };
+  window.addEventListener('error', function(e) {
+    logToServer('UNCAUGHT', [e.message, e.filename, e.lineno, e.colno, e.error ? e.error.stack : '']);
+  });
+  window.addEventListener('unhandledrejection', function(e) {
+    logToServer('REJECTION', [e.reason ? (e.reason.stack || e.reason) : 'unknown']);
+  });
+})();
+</script>
+
+<meta charset="utf-8">
+<title>VoxMain — Mersibo</title>
+<style>
+* { margin:0; padding:0; }
+body { width:100%; height:100%; overflow:hidden; background:#111; }
+#unity-canvas { width:100%; height:100vh; display:block; }
+#loading-overlay {
+  position:fixed; top:0; left:0; right:0; bottom:0;
+  background:#1a1a2e; color:#fff; display:flex;
+  flex-direction:column; align-items:center; justify-content:center;
+  font-family:Arial,sans-serif; z-index:999; gap:12px;
+}
+#progress-bar-bg { width:340px; height:10px; background:#333; border-radius:5px; }
+#progress-bar { height:100%; background:#e94560; border-radius:5px; width:0%; transition:width 0.4s; }
+#status-text { font-size:0.84em; color:#aaa; min-height:1.2em; text-align:center; max-width:400px; }
+</style>
+</head>
+<body>
+
+<div id="loading-overlay">
+  <div style="font-size:1.8em">🎮 Mersibo</div>
+  <div id="progress-bar-bg"><div id="progress-bar"></div></div>
+  <div id="status-text">Загрузка...</div>
+</div>
+
+<canvas id="unity-canvas"></canvas>
+
+<script>
+// Эта Unity-сборка намеренно запрещает небезопасный HTTP для LAN-IP.
+
+// ================================================================
+// ШАГ 1: Определяем onUnity* функции СРАЗУ - ДО загрузки Unity
+// Unity C# вызывает их через jslib как глобальные JS функции
+// ================================================================
+
+var GAME_ID = parseInt(new URLSearchParams(location.search).get('game_id') || '210');
+// Unity C# проверяет схему и хост: если это http:// и не loopback (localhost/127.0.0.1),
+// C# выбрасывает InvalidOperationException: "Insecure connection not allowed".
+// Поэтому для Unity C# базовый URL всегда loopback 127.0.0.1.
+// А перехватчик JS (localMersiboUrl) подменяет его на реальный origin браузера (например, 192.168.1.xxx:8080).
+var MERSIBO_BASE = 'http://127.0.0.1:8080/webgl/StreamingAssets/';
+var _unityLoaded = false;
+
+var REMOTE_DATA_PREFIX = 'https://mersibo.ru/sites/all/modules/voxunity/data/';
+var REMOTE_APP_PREFIX = 'https://mersibo.ru/sites/all/modules/voxunity/app/vox_main/';
+
+function localMersiboUrl(url) {
+  var value = (url && typeof url === 'object' && url.url) ? url.url : url;
+  if (typeof value === 'string') {
+    if (value.indexOf(REMOTE_DATA_PREFIX) === 0) {
+      return location.origin + '/webgl/StreamingAssets/' + value.slice(REMOTE_DATA_PREFIX.length);
+    }
+    if (value.indexOf(REMOTE_APP_PREFIX) === 0) {
+      return location.origin + '/webgl/' + value.slice(REMOTE_APP_PREFIX.length);
+    }
+    // Подмена loopback-адреса на реальный IP хоста, откуда открыта страница
+    if (value.indexOf('http://127.0.0.1:8080/') === 0) {
+      return location.origin + '/' + value.slice('http://127.0.0.1:8080/'.length);
+    }
+    if (value.indexOf('http://localhost:8080/') === 0) {
+      return location.origin + '/' + value.slice('http://localhost:8080/'.length);
+    }
+  }
+  return url;
+}
+window.localMersiboUrl = localMersiboUrl;
+var nativeFetch = window.fetch.bind(window);
+window.fetch = function(input, init) {
+  var local = localMersiboUrl(input);
+  if (local !== input) console.log('[LOCAL ASSET]', input, '→', local);
+  return nativeFetch(local, init);
+};
+var NativeXHR = window.XMLHttpRequest;
+window.XMLHttpRequest = function() {
+  var xhr = new NativeXHR();
+  var nativeOpen = xhr.open;
+  xhr.open = function(method, url) {
+    var local = localMersiboUrl(url);
+    if (local !== url) console.log('[LOCAL ASSET/XHR]', url, '→', local);
+    return nativeOpen.apply(xhr, [method, local].concat([].slice.call(arguments, 2)));
+  };
+  return xhr;
+};
+window.XMLHttpRequest.prototype = NativeXHR.prototype;
+
+function setProgress(pct, msg) {
+  var bar = document.getElementById('progress-bar');
+  var status = document.getElementById('status-text');
+  if (bar) bar.style.width = pct + '%';
+  if (msg && status) status.textContent = msg;
+}
+function hideOverlay() {
+  var el = document.getElementById('loading-overlay');
+  if (el) { el.style.transition='opacity 0.5s'; el.style.opacity='0'; setTimeout(function(){ if(el.parentNode)el.parentNode.removeChild(el); },600); }
+}
+
+// Эти функции Unity вызывает из C# напрямую (глобальный scope)
+window.onUnityGetBrowserVars = function() {
+  console.log('[onUnityGetBrowserVars] called');
+  if (window.configUnity) return window.configUnity.getBrowserVars();
+  return JSON.stringify({
+    base_url: MERSIBO_BASE, url: MERSIBO_BASE, public_url: MERSIBO_BASE,
+    favourite_games_ids: [], is_dev_mode: false, locale: 'ru-RU', user_name: 'Гость', user_id: 1
+  });
+};
+
+window.onUnityAppStarted = function() {
+  console.log('[onUnityAppStarted] Unity полностью загружен!');
+  _unityLoaded = true;
+  setProgress(100, 'Готово!');
+  setTimeout(hideOverlay, 300);
+  if (window.configUnity) window.configUnity.onAppStarted();
+  if (GAME_ID > 0) setTimeout(function(){ startGame(GAME_ID); }, 500);
+};
+
+window.onUnityAppActivated    = function()                    { if(window.configUnity) window.configUnity.onAppActivated(); };
+window.onUnityAppExit         = function()                    { if(window.configUnity) window.configUnity.onAppExit(); };
+window.onUnityAppExitComplete = function()                    { if(window.configUnity) window.configUnity.onAppExitComplete(); };
+window.onUnityError           = function(msg)                 { console.error('[Unity Error]',msg); setProgress(0,'Ошибка: '+String(msg).slice(0,100)); if(window.configUnity && window.configUnity.onAppError) window.configUnity.onAppError(msg); };
+window.onUnityLog             = function(msg,warn)            { (warn?console.warn:console.log)('[Unity]',msg); if(window.configUnity && window.configUnity.onAppLog) window.configUnity.onAppLog(msg,warn); };
+window.onUnityGameStarted     = function(id)                  { console.log('[Unity] Игра запущена ID:',id); if(window.configUnity) window.configUnity.onGameStarted(id); };
+window.onUnityGameOver        = function(id,res,unic)         { console.log('[Unity] Игра завершена ID:',id,res); if(window.configUnity) window.configUnity.onGameOver(id,res,unic); };
+window.onUnityGameStop        = function()                    { if(window.configUnity) window.configUnity.onGameStop(); };
+window.onUnityGameStopped     = function()                    { if(window.configUnity) window.configUnity.onGameStopped(); };
+window.onUnitySetFullScreenMode = function(fs)                { if(window.configUnity) window.configUnity.setFullScreenMode(fs); };
+window.onUnityClearAppCache   = function(f,c)                 { if(window.configUnity) window.configUnity.clearAppCache(f,c); };
+window.onUnityPrintGameDoc    = function(id,url,p)            { if(window.configUnity && window.configUnity.printGameDoc) window.configUnity.printGameDoc(id,url,p); };
+
+// ================================================================
+// ШАГ 2: Слушаем события от preloader.js (event-to-host)
+// ================================================================
+document.addEventListener('event-to-host', function(e) {
+  var cmd = e.detail && e.detail.command;
+  var data = e.detail && e.detail.data;
+  console.log('[HOST ←]', cmd, data);
+
+  if (cmd === 'onAppInitStart') {
+    setProgress(50, 'Инициализируем...');
+    function tryInit(attemptsLeft) {
+      if (typeof window.sendToWebview === 'function') {
+        window.sendToWebview({ command: 'init', data: {
+          base_url: MERSIBO_BASE, url: MERSIBO_BASE, public_url: MERSIBO_BASE,
+          favourite_games_ids: [], is_dev_mode: false, is_full_screen: false,
+          locale: 'ru-RU', user_name: 'Гость', user_id: 1
+        }});
+        setProgress(60, 'Unity загружается (~30 сек)...');
+      } else if (attemptsLeft > 0) {
+        setTimeout(function() { tryInit(attemptsLeft - 1); }, 100);
+      } else {
+        console.error('sendToWebview не появилась вовремя!');
+      }
+    }
+    tryInit(50);
+  }
+  else if (cmd === 'onAppInitComplete') {
+    setProgress(70, 'Инициализация завершена, ждём Unity...');
+  }
+  else if (cmd === 'onAppLoadComplete') {
+    // onAppStarted тоже вызывает это - дублируем обработку
+    _unityLoaded = true;
+    setProgress(100, 'Готово!');
+    setTimeout(hideOverlay, 300);
+    if (GAME_ID > 0) setTimeout(function(){ startGame(GAME_ID); }, 500);
+  }
+  else if (cmd === 'onLoadingProgress') {
+    var rawProgress = Number(data && data.progress || 0);
+    // Unity loader считает 0..0.9 только скачивание бинарников (data 38% + wasm 62%).
+    // 0.34 соответствует завершению скачивания VoxMain.data.unityweb.
+    // Затем браузер начинает компилировать 52 МБ WebAssembly (WASM), во время чего
+    // прогресс скачивания не меняется. Чтобы интерфейс не казался "зависшим",
+    // нормализуем отображение и поясняем этап:
+    var percent = Math.min(99, Math.round(rawProgress * 100));
+    var msg = 'Загрузка движка Unity: ' + percent + '%';
+    if (rawProgress >= 0.32 && rawProgress < 0.9) {
+      msg = 'Загрузка и компиляция WebAssembly (' + percent + '%)...';
+    } else if (rawProgress >= 0.9) {
+      msg = 'Инициализация графики WebGL...';
+    }
+    setProgress(percent, msg);
+  }
+  else if (cmd === 'onError') {
+    var msg = data && data.error ? String(data.error).slice(0,500) : 'неизвестная ошибка Unity';
+    var status = document.getElementById('status-text');
+    if (status) status.style.color = '#f66';
+    setProgress(0, '⚠ ' + msg);
+    // Это полное исходное сообщение Unity, а не новый JS-краш интерфейса.
+    console.error('[HOST] Unity error:', msg, data);
+  }
+});
+
+// ================================================================
+// ШАГ 3: Функция запуска игры (из консоли или автоматически)
+// ================================================================
+function startGame(gameId) {
+  console.log('[HOST →] startGame', gameId);
+  if (!_unityLoaded) { console.warn('Unity ещё не загружен!'); return; }
+  if (typeof window.sendToWebview !== 'function') { console.error('sendToWebview не найдена!'); return; }
+  window.sendToWebview({ command: 'startGame', data: JSON.stringify({
+    game_id: gameId, game_params: '', game_unic_params: '', is_game_new: true
+  })});
+}
+window.startGame = startGame;
+
+console.log('[HOST] onUnity* функции определены:', typeof window.onUnityGetBrowserVars);
+</script>
+
+<script src="Polyfills/es2021.js?v=local-7"></script>
+<script src="Build/VoxMain.loader.js?v=local-7"></script>
+<!-- preloader.js: запускает Unity, экспортирует window.sendToWebview, window.initUnityApp -->
+<script src="API/unity-preloader.js?v=local-7"></script>
+
+</body>
+</html>
