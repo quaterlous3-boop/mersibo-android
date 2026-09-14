@@ -67,9 +67,25 @@ class MersiboLocalServer(
     private fun createAssetResponse(inputStream: InputStream, path: String, method: Method): Response {
         val mime = getMimeType(path)
         val resp = if (method == Method.HEAD) {
-            newFixedLengthResponse(Response.Status.OK, mime, "")
+            val length = try {
+                context.assets.openFd("www/$path").length
+            } catch (_: Exception) {
+                inputStream.available().toLong()
+            }
+            val r = newFixedLengthResponse(Response.Status.OK, mime, "")
+            if (length > 0) r.addHeader("Content-Length", length.toString())
+            r
         } else {
-            newChunkedResponse(Response.Status.OK, mime, inputStream)
+            val length = try {
+                context.assets.openFd("www/$path").length
+            } catch (_: Exception) {
+                inputStream.available().toLong()
+            }
+            if (length > 0) {
+                newFixedLengthResponse(Response.Status.OK, mime, inputStream, length)
+            } else {
+                newChunkedResponse(Response.Status.OK, mime, inputStream)
+            }
         }
         addCorsHeaders(resp)
         return resp

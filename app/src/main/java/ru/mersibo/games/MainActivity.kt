@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         // 2. Setup WebView for Unity WebGL
         webView = findViewById(R.id.webView)
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         val settings: WebSettings = webView.settings
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true
@@ -46,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         settings.allowFileAccess = true
         settings.allowContentAccess = true
         settings.cacheMode = WebSettings.LOAD_DEFAULT
+        settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+        WebView.setWebContentsDebuggingEnabled(true)
 
         webView.webChromeClient = object : WebChromeClient() {
             override fun onConsoleMessage(consoleMessage: ConsoleMessage): Boolean {
