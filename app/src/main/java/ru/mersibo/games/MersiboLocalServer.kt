@@ -34,11 +34,21 @@ class MersiboLocalServer(
         val uri = session.uri
         val method = session.method
 
-        if (uri == "/api/client-log") {
-            return newFixedLengthResponse(Response.Status.OK, "text/plain", "ok")
+        if (method == Method.OPTIONS) {
+            val resp = newFixedLengthResponse(Response.Status.OK, "text/plain", "")
+            addCorsHeaders(resp)
+            return resp
         }
 
-        val assetPath = if (uri.startsWith("/")) uri.substring(1) else uri
+        if (uri == "/api/client-log") {
+            val resp = newFixedLengthResponse(Response.Status.OK, "text/plain", "ok")
+            addCorsHeaders(resp)
+            return resp
+        }
+
+        // Strip any query string or leading slashes for file lookups
+        val cleanUri = if (uri.contains("?")) uri.substringBefore("?") else uri
+        val assetPath = cleanUri.trimStart('/')
 
         // 1. Check in Android assets (bundled games & Unity engine)
         try {
@@ -55,13 +65,15 @@ class MersiboLocalServer(
         }
 
         // 3. Fallback / Proxy to remote Mersibo server and cache permanently
-        if (uri.startsWith("/webgl/StreamingAssets/")) {
-            val relPath = uri.removePrefix("/webgl/StreamingAssets/")
+        if (cleanUri.startsWith("/webgl/StreamingAssets/")) {
+            val relPath = cleanUri.removePrefix("/webgl/StreamingAssets/")
             val remoteUrl = "$remoteBaseUrl/$relPath"
             return proxyAndCache(remoteUrl, cachedFile, method)
         }
 
-        return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "File not found: $uri")
+        val notFoundResp = newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "File not found: $uri")
+        addCorsHeaders(notFoundResp)
+        return notFoundResp
     }
 
     private fun createAssetResponse(inputStream: InputStream, path: String, method: Method): Response {
@@ -76,15 +88,22 @@ class MersiboLocalServer(
             if (length > 0) r.addHeader("Content-Length", length.toString())
             r
         } else {
-            val length = try {
-                context.assets.openFd("www/$path").length
-            } catch (_: Exception) {
-                inputStream.available().toLong()
-            }
-            if (length > 0) {
-                newFixedLengthResponse(Response.Status.OK, mime, inputStream, length)
+            // Read exact bytes for small assets (< 2MB) to ensure 100% correct Content-Length and no chunking errors
+            val available = try { inputStream.available() } catch (_: Exception) { 0 }
+            if (available in 1..2097152) {
+                val bytes = inputStream.use { it.readBytes() }
+                newFixedLengthResponse(Response.Status.OK, mime, ByteArrayInputStream(bytes), bytes.size.toLong())
             } else {
-                newChunkedResponse(Response.Status.OK, mime, inputStream)
+                val length = try {
+                    context.assets.openFd("www/$path").length
+                } catch (_: Exception) {
+                    available.toLong()
+                }
+                if (length > 0) {
+                    newFixedLengthResponse(Response.Status.OK, mime, inputStream, length)
+                } else {
+                    newChunkedResponse(Response.Status.OK, mime, inputStream)
+                }
             }
         }
         addCorsHeaders(resp)
@@ -98,8 +117,7 @@ class MersiboLocalServer(
             r.addHeader("Content-Length", file.length().toString())
             r
         } else {
-            val r = newFixedLengthResponse(Response.Status.OK, mime, FileInputStream(file), file.length())
-            r
+            newFixedLengthResponse(Response.Status.OK, mime, FileInputStream(file), file.length())
         }
         addCorsHeaders(resp)
         return resp
@@ -121,11 +139,13 @@ class MersiboLocalServer(
 
             val response = httpClient.newCall(reqBuilder.build()).execute()
             if (!response.isSuccessful) {
-                return newFixedLengthResponse(
+                val errResp = newFixedLengthResponse(
                     Response.Status.lookup(response.code) ?: Response.Status.NOT_FOUND,
                     "text/plain",
                     "Remote error ${response.code}"
                 )
+                addCorsHeaders(errResp)
+                return errResp
             }
 
             val mime = getMimeType(destinationFile.name)
@@ -168,7 +188,9 @@ class MersiboLocalServer(
             Log.e(TAG, "Proxy failed for $remoteUrl", e)
         }
 
-        return newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "Failed to fetch from remote")
+        val failResp = newFixedLengthResponse(Response.Status.NOT_FOUND, "text/plain", "Failed to fetch from remote")
+        addCorsHeaders(failResp)
+        return failResp
     }
 
     private fun addCorsHeaders(response: Response) {
