@@ -206,29 +206,45 @@ document.addEventListener('event-to-host', function(e) {
   }
   else if (cmd === 'onLoadingProgress') {
     var rawProgress = Number(data && data.progress || 0);
-    // Unity loader считает 0..0.9 только скачивание бинарников (data 38% + wasm 62%).
-    // 0.34 соответствует завершению скачивания VoxMain.data.unityweb.
-    // Затем браузер начинает компилировать 52 МБ WebAssembly (WASM), во время чего
-    // прогресс скачивания не меняется. Чтобы интерфейс не казался "зависшим",
-    // нормализуем отображение и поясняем этап:
     var percent = Math.min(99, Math.round(rawProgress * 100));
     var msg = 'Загрузка движка Unity: ' + percent + '%';
     if (rawProgress >= 0.32 && rawProgress < 0.9) {
-      msg = 'Загрузка и компиляция WebAssembly (' + percent + '%)...';
+      msg = 'Компиляция WebAssembly (' + percent + '%)...';
     } else if (rawProgress >= 0.9) {
-      msg = 'Инициализация графики WebGL...';
+      msg = 'Инициализация графики WebGL... (коснитесь экрана)';
     }
     setProgress(percent, msg);
   }
   else if (cmd === 'onError') {
     var msg = data && data.error ? String(data.error).slice(0,500) : 'неизвестная ошибка Unity';
     var status = document.getElementById('status-text');
-    if (status) status.style.color = '#f66';
+    if (status) {
+      status.style.color = '#ff4d4d';
+      status.style.fontSize = '1.05em';
+      status.style.background = 'rgba(0,0,0,0.7)';
+      status.style.padding = '8px 14px';
+      status.style.borderRadius = '6px';
+    }
     setProgress(0, '⚠ ' + msg);
-    // Это полное исходное сообщение Unity, а не новый JS-краш интерфейса.
     console.error('[HOST] Unity error:', msg, data);
   }
 });
+
+// Авторазблокировка AudioContext и взаимодействия по первому тапу
+function unlockAudio() {
+  try {
+    var AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (AudioContext) {
+      var dummyCtx = new AudioContext();
+      if (dummyCtx.state === 'suspended') {
+        dummyCtx.resume();
+      }
+    }
+  } catch(e) {}
+}
+window.addEventListener('touchstart', unlockAudio, { once: true });
+window.addEventListener('touchend', unlockAudio, { once: true });
+window.addEventListener('click', unlockAudio, { once: true });
 
 // ================================================================
 // ШАГ 3: Функция запуска игры (из консоли или автоматически)
