@@ -41,6 +41,14 @@ class MersiboLocalServer(
         }
 
         if (uri == "/api/client-log") {
+            try {
+                val map = HashMap<String, String>()
+                session.parseBody(map)
+                val postData = map["postData"] ?: ""
+                Log.i("ClientLog", postData)
+            } catch (e: Exception) {
+                Log.e("ClientLog", "Failed to parse log body: ${e.message}")
+            }
             val resp = newFixedLengthResponse(Response.Status.OK, "text/plain", "ok")
             addCorsHeaders(resp)
             return resp
@@ -49,6 +57,14 @@ class MersiboLocalServer(
         // Strip any query string or leading slashes for file lookups
         val cleanUri = if (uri.contains("?")) uri.substringBefore("?") else uri
         val assetPath = cleanUri.trimStart('/')
+
+        // Handle root redirect to catalog.html
+        if (cleanUri == "/" || cleanUri.isEmpty()) {
+            val resp = newFixedLengthResponse(Response.Status.REDIRECT, "text/plain", "")
+            resp.addHeader("Location", "/catalog.html")
+            addCorsHeaders(resp)
+            return resp
+        }
 
         // 1. Check in Android assets (bundled games & Unity engine)
         try {

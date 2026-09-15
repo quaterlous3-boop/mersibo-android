@@ -83,34 +83,53 @@
 		 */
 			calcIndexedDBSize(a_db_name)
 			{
-				return new Promise((resolve, reject) => {
-						var bdSize		= 0;
-						var pIDBRequest	= indexedDB.open(a_db_name);
-						pIDBRequest.onsuccess	= function() {
-  							let dbDB		= pIDBRequest.result;
-							if (!dbDB || dbDB.objectStoreNames.length == 0) {
-								resolve(bdSize);
-								return;
-							}
-						
-							var dbCursor	= dbDB.transaction(dbDB.objectStoreNames).objectStore(dbDB.objectStoreNames[0]).openCursor();
-							dbCursor.onsuccess	= function(event) {
-        						let bdCursor		= event.target.result;
-        						if (bdCursor) {
-									let storedObject	= bdCursor.value;
-									let json			= JSON.stringify(storedObject);
-									bdSize				+= json.length;
-									if (storedObject.hasOwnProperty("size"))
-										bdSize				+= storedObject.size;
-									
-									bdCursor.continue();
-								}
-								else {
-									resolve(bdSize);
-								}
-    						}
+				return new Promise((resolve) => {
+					var settled = false;
+					function done(size) {
+						if (!settled) {
+							settled = true;
+							resolve(size || 0);
 						}
-					});
+					}
+					var timer = setTimeout(function() { done(0); }, 1500);
+					try {
+						var bdSize = 0;
+						var pIDBRequest = indexedDB.open(a_db_name);
+						pIDBRequest.onerror = function() { clearTimeout(timer); done(0); };
+						pIDBRequest.onsuccess = function() {
+							try {
+								let dbDB = pIDBRequest.result;
+								if (!dbDB || dbDB.objectStoreNames.length == 0) {
+									clearTimeout(timer);
+									done(bdSize);
+									return;
+								}
+								var dbCursor = dbDB.transaction(dbDB.objectStoreNames).objectStore(dbDB.objectStoreNames[0]).openCursor();
+								dbCursor.onerror = function() { clearTimeout(timer); done(bdSize); };
+								dbCursor.onsuccess = function(event) {
+									let bdCursor = event.target.result;
+									if (bdCursor) {
+										let storedObject = bdCursor.value;
+										let json = JSON.stringify(storedObject);
+										bdSize += json.length;
+										if (storedObject.hasOwnProperty("size"))
+											bdSize += storedObject.size;
+										bdCursor.continue();
+									} else {
+										clearTimeout(timer);
+										done(bdSize);
+									}
+								};
+							} catch(err) {
+								clearTimeout(timer);
+								done(0);
+							}
+						};
+					} catch(e) {
+						clearTimeout(timer);
+						done(0);
+					}
+				});
 			}
 		
 		/**
