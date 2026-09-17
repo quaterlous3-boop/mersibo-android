@@ -55,6 +55,16 @@ class MainActivity : AppCompatActivity() {
                 android.util.Log.d("WebViewConsole", "[${consoleMessage.messageLevel()}] ${consoleMessage.message()}")
                 return true
             }
+
+            override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+                super.onShowCustomView(view, callback)
+                hideSystemUI()
+            }
+
+            override fun onHideCustomView() {
+                super.onHideCustomView()
+                hideSystemUI()
+            }
         }
 
         webView.webViewClient = object : WebViewClient() {
@@ -74,7 +84,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (webView.canGoBack()) {
+        val currentUrl = webView.url ?: ""
+        if (currentUrl.contains("/webgl/")) {
+            webView.loadUrl("http://127.0.0.1:$serverPort/catalog.html")
+        } else if (webView.canGoBack()) {
             webView.goBack()
         } else {
             super.onBackPressed()

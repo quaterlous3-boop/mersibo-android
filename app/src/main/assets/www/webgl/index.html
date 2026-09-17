@@ -55,9 +55,47 @@ body { width:100%; height:100%; overflow:hidden; background:#111; }
 #progress-bar-bg { width:340px; height:10px; background:#333; border-radius:5px; }
 #progress-bar { height:100%; background:#e94560; border-radius:5px; width:0%; transition:width 0.4s; }
 #status-text { font-size:0.84em; color:#aaa; min-height:1.2em; text-align:center; max-width:400px; }
+#top-nav-bar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.nav-btn {
+  background: rgba(20, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.1s ease, background 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.nav-btn:hover, .nav-btn:active {
+  opacity: 1;
+  background: rgba(35, 35, 65, 0.95);
+  transform: scale(1.04);
+}
 </style>
 </head>
 <body>
+
+<div id="top-nav-bar">
+  <button id="btn-back-to-catalog" class="nav-btn" title="Вернуться в каталог">‹ Каталог</button>
+  <button id="btn-fullscreen" class="nav-btn" title="Во весь экран">⛶</button>
+</div>
 
 <div id="loading-overlay">
   <div style="font-size:1.8em">🎮 Mersibo</div>
@@ -156,17 +194,77 @@ window.onUnityAppStarted = function() {
 };
 
 window.onUnityAppActivated    = function()                    { if(window.configUnity) window.configUnity.onAppActivated(); };
-window.onUnityAppExit         = function()                    { if(window.configUnity) window.configUnity.onAppExit(); };
-window.onUnityAppExitComplete = function()                    { if(window.configUnity) window.configUnity.onAppExitComplete(); };
+window.onUnityAppExit         = function()                    { if(window.configUnity) window.configUnity.onAppExit(); returnToCatalog(); };
+window.onUnityAppExitComplete = function()                    { if(window.configUnity) window.configUnity.onAppExitComplete(); returnToCatalog(); };
 window.onUnityError           = function(msg)                 { console.error('[Unity Error]',msg); setProgress(0,'Ошибка: '+String(msg).slice(0,100)); if(window.configUnity && window.configUnity.onAppError) window.configUnity.onAppError(msg); };
 window.onUnityLog             = function(msg,warn)            { (warn?console.warn:console.log)('[Unity]',msg); if(window.configUnity && window.configUnity.onAppLog) window.configUnity.onAppLog(msg,warn); };
 window.onUnityGameStarted     = function(id)                  { console.log('[Unity] Игра запущена ID:',id); if(window.configUnity) window.configUnity.onGameStarted(id); };
 window.onUnityGameOver        = function(id,res,unic)         { console.log('[Unity] Игра завершена ID:',id,res); if(window.configUnity) window.configUnity.onGameOver(id,res,unic); };
 window.onUnityGameStop        = function()                    { if(window.configUnity) window.configUnity.onGameStop(); };
-window.onUnityGameStopped     = function()                    { if(window.configUnity) window.configUnity.onGameStopped(); };
-window.onUnitySetFullScreenMode = function(fs)                { if(window.configUnity) window.configUnity.setFullScreenMode(fs); };
+window.onUnityGameStopped     = function()                    { if(window.configUnity) window.configUnity.onGameStopped(); returnToCatalog(); };
+window.onUnitySetFullScreenMode = function(fs)                { if(window.configUnity) window.configUnity.setFullScreenMode(fs); toggleFullscreen(Boolean(fs)); };
 window.onUnityClearAppCache   = function(f,c)                 { if(window.configUnity) window.configUnity.clearAppCache(f,c); };
 window.onUnityPrintGameDoc    = function(id,url,p)            { if(window.configUnity && window.configUnity.printGameDoc) window.configUnity.printGameDoc(id,url,p); };
+
+// ================================================================
+// Полноэкранный режим и навигация в каталог
+// ================================================================
+var _isReturning = false;
+function returnToCatalog() {
+  if (_isReturning) return;
+  _isReturning = true;
+  console.log('[HOST] Возврат в каталог...');
+  try {
+    if (window.configUnity && typeof window.configUnity.sendToUnity === 'function') {
+      window.configUnity.sendToUnity('jsStopGame', '');
+    }
+  } catch(e) {}
+  window.location.href = '/catalog.html';
+}
+
+function toggleFullscreen(forced) {
+  var isFs = (typeof forced === 'boolean') ? forced : !(document.fullscreenElement || document.webkitFullscreenElement);
+  console.log('[HOST] toggleFullscreen:', isFs);
+  try {
+    if (isFs) {
+      var elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(function(){});
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(function(){});
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    }
+  } catch (err) {
+    console.warn('[HOST] Fullscreen error:', err);
+  }
+  if (window.configUnity && window.configUnity.unity_instance && typeof window.configUnity.unity_instance.SetFullscreen === 'function') {
+    try { window.configUnity.unity_instance.SetFullscreen(isFs ? 1 : 0); } catch(e) {}
+  }
+}
+
+// Слушатели кнопок верхнего бара
+var btnBack = document.getElementById('btn-back-to-catalog');
+if (btnBack) {
+  btnBack.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    returnToCatalog();
+  });
+}
+var btnFs = document.getElementById('btn-fullscreen');
+if (btnFs) {
+  btnFs.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFullscreen();
+  });
+}
 
 // ================================================================
 // ШАГ 2: Слушаем события от preloader.js (event-to-host)
@@ -227,6 +325,13 @@ document.addEventListener('event-to-host', function(e) {
     }
     setProgress(0, '⚠ ' + msg);
     console.error('[HOST] Unity error:', msg, data);
+  }
+  else if (cmd === 'onGameStopped' || cmd === 'onAppExit' || cmd === 'onAppExitComplete' || cmd === 'eventWebviewOnExit') {
+    returnToCatalog();
+  }
+  else if (cmd === 'setFullScreenMode' || cmd === 'eventWebviewSetFullScreen') {
+    var isFs = data && (typeof data.is_fullscreen !== 'undefined' ? data.is_fullscreen : !!data);
+    toggleFullscreen(Boolean(isFs));
   }
 });
 

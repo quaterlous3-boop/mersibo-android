@@ -365,11 +365,15 @@
 		 */
 			setFullScreenMode(a_is_fullscreen)
 			{
-				// для Electron-приложений лучше делать централизовано:
-				//this.sendToHost('eventWebviewSetFullScreen', { is_fullscreen: a_is_fullscreen });
+				// для Electron-приложений и хоста:
 				this.sendToHost('setFullScreenMode', { is_fullscreen: a_is_fullscreen });
-				/* для сайтовой версии - можно так:
-				this.unity_instance.SetFullscreen(a_is_fullscreen);*/
+				if (this.unity_instance && typeof this.unity_instance.SetFullscreen === 'function') {
+					try {
+						this.unity_instance.SetFullscreen(a_is_fullscreen ? 1 : 0);
+					} catch(e) {
+						console.warn('[CUnityAPI] SetFullscreen error:', e);
+					}
+				}
 			}
 		
 	}
